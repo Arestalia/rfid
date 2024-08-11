@@ -1,0 +1,119 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap");
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #323440;
+  color: white;
+}
+
+body {
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+.absensi-container {
+  background: rgba(61, 64, 73, 0.46);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5.5px);
+  -webkit-backdrop-filter: blur(5.5px);
+  border: 1px solid rgba(61, 64, 73, 0.24);
+  display: flex;
+  flex-direction: column;
+  width: 75%;
+  padding: 10px 0;
+  margin: 50px 0;
+  justify-content: center;
+  align-items: center;
+}
+
+.absensi-container .title {
+  font-family: "Roboto Mono", monospace;
+  font-weight: 700;
+  font-size: 45px;
+  text-transform: uppercase;
+  margin: 10px 0;
+  padding: 0;
+}
+
+.absensi-container .time {
+  font-size: 25px;
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto Mono", monospace;
+  font-weight: 700;
+}
+
+.absensi-container .error {
+  font-size: 25px;
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto Mono", monospace;
+  font-weight: 400;
+  color: white;
+}
+
+.absensi-container .section-check {
+  display: flex;
+  gap: 30px;
+  padding: 5px 57px;
+  border: 2px solid #296cc7;
+  border-radius: 20px;
+  margin: 20px 0;
+}
+
+.absensi-container .section-check h1 {
+  font-size: 25px;
+}
+.absensi-container .section-check h1:first-child {
+  border-right: 2px solid #296cc7;
+  padding-right: 40px;
+}
+
+.absensi-container .absenForm .rfid-input {
+  background-color: #37384a;
+  padding: 50px 100px;
+  position: relative;
+  border-radius: 20px;
+  border: 2px solid #296cc7;
+}
+
+.absensi-container .absenForm .rfid-input img {
+  width: 130px;
+  height: 130px;
+}
+
+.absensi-container .absenForm .rfid-input input {
+  position: absolute;
+  font-family: "Roboto Mono", monospace;
+  width: 150px;
+  bottom: 10px;
+  right: 85px;
+  outline: none;
+  background: transparent;
+  border: 0;
+  color: white;
+  font-size: 16px;
+}
+
+.absensi-container .absenForm .rfid-input input:focus {
+  border: 0;
+  outline: none;
+}
+
+.absensi-container .absenForm .btn-submit {
+  width: 100%;
+  padding: 15px;
+  border-radius: 15px;
+  border: 2px solid #296cc7;
+  background-color: #37384a;
+  margin: 15px 0;
+  cursor: pointer;
+  color: white;
+  font-size: 20px;
+  font-family: "Roboto Mono", monospace;
+}
