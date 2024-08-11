@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 06, 2024 at 01:27 PM
+-- Generation Time: Aug 07, 2024 at 10:05 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -36,14 +36,25 @@ CREATE TABLE `absensi` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `absensi`
+
+
+--
+-- Table structure for table `accounts`
 --
 
-INSERT INTO `absensi` (`id`, `siswa_id`, `waktu`, `tanggal`, `status`) VALUES
-(186, 39, '16:09:26', '2024-08-06', 'masuk'),
-(194, 39, '16:15:48', '2024-08-06', 'pulang'),
-(195, 27, '16:17:03', '2024-08-06', 'telat'),
-(196, 27, '16:17:03', '2024-08-06', 'pulang');
+CREATE TABLE `accounts` (
+  `id` int(11) NOT NULL,
+  `username` varchar(50) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `role` enum('admin','member') NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+--
+-- Dumping data for table `accounts`
+--
+
+INSERT INTO `accounts` (`id`, `username`, `password`, `role`) VALUES
+(1, 'admin', '$2y$10$SfhYIDtn.iOuCW7zfoFLuuZHX6lja4lF4XA4JqNmpiH/.P3zB8JCa', 'admin');
 
 -- --------------------------------------------------------
 
@@ -63,14 +74,6 @@ CREATE TABLE `siswa` (
 --
 -- Dumping data for table `siswa`
 --
-
-INSERT INTO `siswa` (`id`, `nama`, `nisn`, `kelas`, `jurusan`, `rfid`) VALUES
-(26, 'FARREL ZATAR RAMADHAN', '0079534802', 'XI', 'PPLG 2', '0001115843'),
-(27, 'M.Akvar Raga Izhar Perdana', '0071359109', 'XI', 'PPLG 1', '0001185826'),
-(39, 'BANGKIT ANJAY', '1234567899', 'XI', 'PPLG 1', '0001121595');
-
---
--- Indexes for dumped tables
 --
 
 --
@@ -79,6 +82,12 @@ INSERT INTO `siswa` (`id`, `nama`, `nisn`, `kelas`, `jurusan`, `rfid`) VALUES
 ALTER TABLE `absensi`
   ADD PRIMARY KEY (`id`),
   ADD KEY `siswa_id` (`siswa_id`);
+
+--
+-- Indexes for table `accounts`
+--
+ALTER TABLE `accounts`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `siswa`
@@ -96,13 +105,19 @@ ALTER TABLE `siswa`
 -- AUTO_INCREMENT for table `absensi`
 --
 ALTER TABLE `absensi`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=197;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=292;
+
+--
+-- AUTO_INCREMENT for table `accounts`
+--
+ALTER TABLE `accounts`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `siswa`
 --
 ALTER TABLE `siswa`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
 
 --
 -- Constraints for dumped tables
