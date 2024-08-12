@@ -16,6 +16,9 @@ $conn = $database->getConnection();
 // Mengambil tanggal dari parameter POST
 $tanggal_awal = $_POST['tanggal_awal'] ?? '2024-01-01';
 $tanggal_akhir = $_POST['tanggal_akhir'] ?? '2024-12-31';
+$time = new DateTime("now", new DateTimeZone('Asia/Jakarta'));
+$date = $time->format('Y-m-d');
+
 
 // Query SQL untuk mengambil data jurusan dan kelas
 $sql_jurusan_kelas = "SELECT DISTINCT jurusan, kelas FROM siswa";
@@ -29,7 +32,7 @@ $mainSheet = $spreadsheet->getActiveSheet();
 $mainSheet->setTitle('Rekap Absensi');
 
 // Set header untuk main sheet
-$mainSheet->setCellValue('A1', 'Rekap Absensi Siswa SMKN 4 BANDAR LAMPUNG');
+$mainSheet->setCellValue('A1', "Rekap Absensi Siswa tanggal $date SMKN 4 BANDAR LAMPUNG");
 $mainSheet->mergeCells('A1:G1');
 $mainSheet->getStyle('A1:G1')->getFont()->setBold(true)->setSize(14);
 $mainSheet->getStyle('A1:G1')->getAlignment()->setHorizontal(Alignment::HORIZONTAL_CENTER);
@@ -103,7 +106,7 @@ while ($jurusan_kelas = $result_jurusan_kelas->fetch_assoc()) {
     $subSheet->setTitle("$jurusan - $kelas");
 
     // Set header untuk sub sheet
-    $subSheet->setCellValue('A1', "Absensi $jurusan - $kelas");
+    $subSheet->setCellValue('A1', "Rekap Absensi $date $jurusan - $kelas");
     $subSheet->mergeCells('A1:G1');
     $subSheet->getStyle('A1:G1')->getFont()->setBold(true)->setSize(14);
     $subSheet->getStyle('A1:G1')->getAlignment()->setHorizontal(Alignment::HORIZONTAL_CENTER);
