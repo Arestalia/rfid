@@ -5,6 +5,8 @@ session_start();
 $database = new Database();
 $conn = $database->getConnection();
 
+$message = "";
+
 if (isset($_POST['login'])) {
     if (!isset($_POST['username'], $_POST['password'])) {
         // Could not get the data that should have been sent.
@@ -31,14 +33,21 @@ if (isset($_POST['login'])) {
                 $_SESSION['name'] = $_POST['username'];
                 $_SESSION['id'] = $id;
 
-                header('Location: list.php');
+                $roleStmt = $conn->prepare('SELECT role FROM accounts WHERE id = ?');
+                $roleStmt->bind_param('i', $id);
+                $roleStmt->execute();
+                $roleStmt->bind_result($role);
+                $roleStmt->fetch();
+
+
+                header('Location: admin/index.php');
             } else {
                 // Incorrect password
-                echo 'Incorrect username and/or password!';
+                $message = 'Incorrect username and/or password!';
             }
         } else {
             // Incorrect username
-            echo 'Incorrect username and/or password!';
+            $message = 'Incorrect username and/or password!';
         }
 
         $stmt->close();
@@ -53,22 +62,32 @@ if (isset($_POST['login'])) {
     <meta charset="utf-8">
     <title>Login</title>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
+    <link rel="stylesheet" href="assets/css/login.css">
 </head>
 
 <body>
-    <div class="login">
-        <h1>Login</h1>
-        <form method="post">
-            <label for="username">
-                <i class="fas fa-user"></i>
-            </label>
-            <input type="text" name="username" placeholder="Username" id="username" required>
-            <label for="password">
-                <i class="fas fa-lock"></i>
-            </label>
-            <input type="password" name="password" placeholder="Password" id="password" required>
-            <input type="submit" name="login" id="login" value="Login">
-        </form>
+    <div class="login-container">
+        <div class="login-box">
+            <h1>Login</h1>
+            <form method="post">
+                <div class="input-group">
+                    <label for="username">
+                        <i class="fas fa-user"></i>
+                    </label>
+                    <input type="text" name="username" placeholder="Username" id="username" required>
+                </div>
+                <div class="input-group">
+                    <label for="password">
+                        <i class="fas fa-lock"></i>
+                    </label>
+                    <input type="password" name="password" placeholder="Password" id="password" required>
+                </div>
+                <?php if ($message): ?>
+                    <p class="error-message"><?= $message ?></p>
+                <?php endif; ?>
+                <input type="submit" name="login" id="login" value="Login">
+            </form>
+        </div>
     </div>
 </body>
 
