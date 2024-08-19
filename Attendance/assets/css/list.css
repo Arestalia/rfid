@@ -375,6 +375,49 @@ body {
   cursor: pointer;
 }
 
+.list-container .list-search .filter-section .expor-data {
+  padding: 12px;
+  font-size: 14px;
+  margin: 0 20px;
+  border: 0;
+  outline: 0;
+  border-radius: 10px;
+  font-family: "Lato", sans-serif;
+  font-weight: 700;
+  background-color: #115dfc;
+  color: white;
+  cursor: pointer;
+}
+
+.list-container .list-search .filter-section .expor-data:hover {
+  background-color: #0e4bbf;
+}
+
+.list-container .list-search .filter-section {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.list-container .list-search .filter-section .tambah-siswa,
+.list-container .list-search .filter-section .expor-data,
+.list-container .list-search .filter-section .hapus-semua-data {
+  padding: 12px;
+  font-size: 14px;
+  margin: 0;
+  border: 0;
+  outline: 0;
+  border-radius: 10px;
+  font-family: "Lato", sans-serif;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.list-container .list-search .filter-section .hapus-semua-data {
+  background-color: #e74c3c; /* Warna merah */
+  color: white;
+}
+
 /* Responsive styles if needed */
 
 /*
