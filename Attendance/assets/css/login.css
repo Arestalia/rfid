@@ -1,0 +1,84 @@
+/* assets/css/login.css */
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f2f5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.login-box {
+  background-color: #fff;
+  padding: 2.5rem; /* Menambah padding untuk lebih ruang di dalam box */
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 350px; /* Memperbesar lebar box */
+  max-width: 100%; /* Agar box tidak melampaui lebar container */
+  box-sizing: border-box; /* Memastikan padding dan border dihitung dalam lebar */
+}
+
+h1 {
+  margin-bottom: 1.5rem; /* Menambah margin bawah untuk spasi yang lebih baik */
+  color: #333;
+  text-align: center;
+}
+
+.input-group {
+  margin-bottom: 1.25rem; /* Menambah margin bawah untuk jarak yang lebih baik */
+  position: relative;
+}
+
+.input-group label {
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  transform: translateY(-50%);
+  color: #888;
+  pointer-events: none;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 0.75rem 0.75rem 0.75rem 2.5rem; /* Menjaga padding agar label tidak menimpa input */
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+
+.input-group input:focus {
+  border-color: #3498db;
+  outline: none;
+}
+
+#error-message {
+  color: #e74c3c;
+  font-size: 0.875rem;
+  margin-top: 0.5rem;
+  text-align: center;
+}
+
+input[type="submit"] {
+  width: 100%;
+  padding: 0.75rem;
+  background-color: #3498db;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+input[type="submit"]:hover {
+  background-color: #2980b9;
+}
