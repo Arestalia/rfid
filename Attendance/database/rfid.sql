@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 07, 2024 at 10:05 PM
+-- Generation Time: Aug 20, 2024 at 03:58 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -35,8 +35,7 @@ CREATE TABLE `absensi` (
   `status` enum('masuk','telat','pulang','diluar jam absen') DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
-
+-- --------------------------------------------------------
 
 --
 -- Table structure for table `accounts`
@@ -74,6 +73,22 @@ CREATE TABLE `siswa` (
 --
 -- Dumping data for table `siswa`
 --
+
+INSERT INTO `siswa` (`id`, `nama`, `nisn`, `kelas`, `jurusan`, `rfid`) VALUES
+(26, 'FARREL zatar', '0079534802', 'XI', 'PPLG 2', '0001121595'),
+(41, 'bangkit sanjay', '1234567899', 'XI', 'PPLG 2', '0001185836'),
+(42, 'reL', '1770133333', 'X', 'TKJ 3', '0001185829'),
+(43, 'KOCAK GAMING', '1111111111', 'XII', 'PPLG 2', '0001204973'),
+(44, 'cil', '3333333333', 'XI', 'DKV 2', '0001115843'),
+(51, 'siapa saja', '8888888888', 'X', 'TABUS 1', '9999999999'),
+(52, 'kocak lu dek', '0100000000', 'X', 'KULINER 1', '0111111111'),
+(53, 'apaan lu bro', '9111111111', 'XI', 'BDP 3', '9111111111'),
+(54, 'saipul jamil', '1043294324', 'X', 'BDP 1', '4328743247'),
+(55, 'adjsahda', '5745343543', 'X', 'ULW 1', '4375345734'),
+(56, '454354353', '4564435354', 'XII', 'TKJ 2', '5435435435');
+
+--
+-- Indexes for dumped tables
 --
 
 --
@@ -105,7 +120,7 @@ ALTER TABLE `siswa`
 -- AUTO_INCREMENT for table `absensi`
 --
 ALTER TABLE `absensi`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=292;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=457;
 
 --
 -- AUTO_INCREMENT for table `accounts`
@@ -117,7 +132,7 @@ ALTER TABLE `accounts`
 -- AUTO_INCREMENT for table `siswa`
 --
 ALTER TABLE `siswa`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
 
 --
 -- Constraints for dumped tables
