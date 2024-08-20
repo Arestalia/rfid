@@ -33,8 +33,34 @@ document.addEventListener("keydown", function (event) {
 
 function validateRFID() {
   var rfid = document.forms["absenForm"]["rfid"].value;
-  if (rfid === "") {
-    alert("RFID harus diisi");
+
+  if (!rfid) {
+    showAlert("RFID harus diisi");
+    clearRFIDField();
+    return false;
+  } else if (rfid.length !== 10) {
+    showAlert("RFID harus berisi 10 karakter");
+    clearRFIDField();
     return false;
   }
+
+  return true; // Jika semua validasi lolos, form akan disubmit
+}
+
+function showAlert(message) {
+  alert(message);
+  setTimeout(function () {
+    closeAlert(); // Menutup alert secara otomatis
+  }, 1000); // Waktu dalam milidetik (1000 ms = 1 detik)
+}
+
+function closeAlert() {
+  window.alert = function () {}; // Override alert agar bisa tertutup otomatis
+}
+
+function clearRFIDField() {
+  setTimeout(function () {
+    document.forms["absenForm"]["rfid"].value = "";
+    document.getElementById("rfid").focus(); // Mengembalikan fokus ke input RFID
+  }, 1000); // Waktu dalam milidetik (1000 ms = 1 detik)
 }
